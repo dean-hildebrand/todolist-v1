@@ -3,7 +3,10 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+let items = ["Feed the dog", "Walk the dog"];
+
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 app.set("view engine", "ejs");
 
@@ -19,14 +22,17 @@ app.get("/", function(req, res) {
   let day = today.toLocaleDateString("en-US", options);
 
   res.render("list", {
-    kindOfDay: day
+    kindOfDay: day,
+    newListItemArray: items
   });
 });
 
 app.post("/", function(req, res) {
-  let input = req.body.todo;
+  let item = req.body.newItem;
 
-  console.log(input);
+  items.push(item);
+
+  res.redirect("/");
 });
 
 app.listen(3000, function() {

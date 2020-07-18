@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<link rel="stylesheet" href="css/styles.css">
   <head>
     <meta charset="utf-8">
     <title>To Do List</title>
   </head>
   <body>
 
+<div class="box" id="heading">
   <h1> <%= kindOfDay %> </h1>
+</div>
+
+<div class="box">
+    <% for(let i = 0; i < newListItemArray.length; i++){ %>
+      <div class="item">
+        <input type="checkbox">
+        <p> <%= newListItemArray[i] %> </p>
+      </div>
+      <% } %>
+
+      <!-- Create form with a single text input, on submit, make post req to home route -->
+      <form  class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="Enter Item" autocomplete="off">
+        <button type="submit" name="button">+</button>
+      </form>
+</div>
 
 
-<!-- Create form with a single text input, on submit, make post req to home route -->
-
-<form  class="" action="/" method="post">
-  <input type="text" name="todo" placeholder="enter new todo">
-  <button type="submit" name="button">Add Todo</button>
-</form>
 
 
 
