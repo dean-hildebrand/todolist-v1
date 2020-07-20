@@ -6,8 +6,8 @@ const date = require(__dirname + "/date.js")
 
 const app = express();
 
-let items = ["Feed the dog", "Walk the dog"];
-let workItems = []
+const items = ["Feed the dog", "Walk the dog"];
+const workItems = []
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -16,7 +16,7 @@ app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
 
-  let day = date()
+  const day = date.getDate()
 
   res.render("list", {
     listTitle: day,
@@ -27,7 +27,6 @@ app.get("/", function(req, res) {
 app.post("/", function(req, res) {
 
   let item = req.body.newItem;
-console.log(req.body.list);
   if(req.body.list === "Work"){
       workItems.push(item)
       res.redirect('/work')
