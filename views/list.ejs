@@ -8,21 +8,21 @@
   <body>
 
 <div class="box" id="heading">
-  <h1> <%= kindOfDay %> </h1>
+  <h1> <%= listTitle %> </h1>
 </div>
 
 <div class="box">
-    <% for(let i = 0; i < newListItemArray.length; i++){ %>
+    <% for(let i = 0; i < newListItems.length; i++){ %>
       <div class="item">
         <input type="checkbox">
-        <p> <%= newListItemArray[i] %> </p>
+        <p> <%= newListItems[i] %> </p>
       </div>
       <% } %>
 
       <!-- Create form with a single text input, on submit, make post req to home route -->
       <form  class="item" action="/" method="post">
         <input type="text" name="newItem" placeholder="Enter Item" autocomplete="off">
-        <button type="submit" name="button">+</button>
+        <button type="submit" name="list" value=<%= listTitle %>>+</button>
       </form>
 </div>
 
