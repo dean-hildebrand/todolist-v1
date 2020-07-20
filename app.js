@@ -42,6 +42,10 @@ console.log(req.body.list);
 
 });
 
+app.get('/about', function(req, res){
+  res.render('about')
+})
+
 app.get('/work', function(req, res){
   res.render("list", {listTitle: "Work List", newListItems: workItems})
 })
